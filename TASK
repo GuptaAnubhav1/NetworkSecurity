@@ -1,0 +1,25 @@
+SELinux is a Mandatory Access Control solution for Linux. Under targeted SELinux, certain high-risk applications 
+(ssh, Apache, sendmail, etc.) are placed in domains. A domain's privileges are restricted to no more than what 
+is required to run the process contained in that domain. 
+As a result, should a vulnerability in a high-risk application be exploited, 
+the ensuing damage is limited to the domain in which that application executes.
+
+In this TASK you will develop and demonstrate the effectiveness of an SELinux policy module that sandboxes 
+a (potentially vulnerable) server. The server is provided here and the client is provided here.
+During the assignment you should not modify the code of either.
+
+Task
+Employ SELinux to implement the principle of least privilege by sandboxing a server to a particular domain (i.e. set of privileges). 
+Show how SELinux prohibits any server action not expressly permitted by the server's security policy. 
+Show how SELinux shuts down the server when a security policy violation is detected. To complete the task you must develop, 
+install and demonstrate an SELinux policy module that runs the server program in its own domain. You must complete the work 
+in this VirtualBox virtual machine.
+
+This video demonstrates how SELinux sandboxes the server: The video shows:
+
+The unconfined server running in an unconfined domain,
+a successful "attack" against the unconfined server (simply simulated by selecting the attack option),
+how the unconfined server can listen on any port,
+the sandboxed server running in its own constrained domain,
+how the sandboxed server prevents the attack,
+how the sandboxed server is restricted to operating only on port 8001
